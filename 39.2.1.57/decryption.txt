@@ -1,0 +1,8 @@
+DWORD Decrypt::CIndex(DWORD value) {
+  auto v12 = (((value ^ 0x502E3065) << 27) |
+              ((value ^ 0x502E3065u) >> 5) & 0x7FF0000) ^
+             0x1AD9281 ^ _rotr(value ^ 0x502E3065, 21);
+  auto v90 = (16 * (value ^ 0x426749E3)) & 0xFFFF0000 ^
+             _rotr(value ^ 0x426749E3, 12) ^ 0xF901B4A6;
+  return v90;
+}
