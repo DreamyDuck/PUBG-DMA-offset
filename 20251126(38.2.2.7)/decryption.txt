@@ -1,0 +1,18 @@
+if (__PAIR64__((8 * (*(_DWORD *)(v11 + 12) ^ 0x5BBF163A)) & 0xFFFF0000 ^
+                   __ROR4__(*(_DWORD *)(v11 + 12) ^ 0x5BBF163A, 13) ^ 0x980A92,
+               v3) == qword_7FF7D0D31410)
+
+DWORD Decrypt::CIndex(DWORD value)
+{
+    DWORD ecx = value ^ 0x5BBF163A;
+    DWORD edx = ecx;
+    edx = _rotr(edx, 0xD);
+    DWORD eax = ecx;
+    eax = eax * 8;
+    eax = eax & 0xFFFF0000;
+    ecx = ecx << 0x1F;
+    eax = eax | ecx;
+    eax = eax ^ 0x980A92;
+    edx = edx ^ eax;
+    return edx;
+}
