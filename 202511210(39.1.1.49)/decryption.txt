@@ -1,14 +1,7 @@
-DWORD Decrypt::CIndex(DWORD value)
-{
-    DWORD ecx = value ^ 0x1EDBF73C;
-    DWORD edx = ecx;
-    edx = _rotr(edx, 0x1F);
-    DWORD eax = ecx;
-    eax = eax >> 0x0F;
-    eax = eax & 0x00010000;
-    ecx = ecx << 0x11;
-    eax = eax | ecx;
-    eax = eax ^ 0xFCA25AFA;
-    edx = edx ^ eax;
-    return edx;
-}
+auto eax = Index ^ 0x12B9FA0D;
+auto ecx = eax;
+ecx = _rotr(ecx,1);
+eax = eax << 0xF;
+eax &= 0xFFFF0000;
+ecx ^= eax;
+return ecx ^ 0x9D248AD;
